@@ -140,6 +140,11 @@ const showMessage = (message)=>{
     }, 2000);
 };
 
+const addColorToKey = (dataLetter, color)=>{
+    const keyElement = document.getElementById(dataLetter);
+    keyElement.classList.add(color);
+}
+
 // flipping tile
 const flipTile = ()=>{
     const rowTiles = document.querySelector('#guessRow-' + currentRow).childNodes;
@@ -151,6 +156,7 @@ const flipTile = ()=>{
             tile.classList.add('flip');
             if(dataLetter == wordle[index]){
                 tile.classList.add('green-overlay');
+                addColorToKey(dataLetter, 'green-overlay');
             }else if(wordle.includes(dataLetter)){
                 tile.classList.add('yellow-overlay');
             }else{
